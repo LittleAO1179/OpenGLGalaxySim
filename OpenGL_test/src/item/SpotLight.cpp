@@ -35,9 +35,15 @@ SpotLight::~SpotLight()
     count--;
 }
 
+unsigned int SpotLight::GetCount()
+{
+    return count;
+}
+
 void SpotLight::Draw(VertexArray& VAO, Shader& lightSpotShader)
 {
     Update();
+    lightSpotShader.use();
     lightSpotShader.setMat4fv("model", m_Model);
     VAO.Bind();
     GLCall(glDrawArrays(GL_TRIANGLES, 0, 36));
@@ -52,7 +58,9 @@ void SpotLight::Update()
     m_Model = glm::rotate(m_Model, glm::radians(m_Angle.x), glm::vec3(1.0f, 0.0f, 0.0f));
     m_Model = glm::rotate(m_Model, glm::radians(m_Angle.y), glm::vec3(0.0f, 1.0f, 0.0f));
     m_Model = glm::rotate(m_Model, glm::radians(m_Angle.z), glm::vec3(0.0f, 0.0f, 1.0f));
-
+    
+    m_LightShaderP->use();
+    m_LightShaderP->setInt("PointLightCount", count);
     m_LightShaderP->setFloat3(m_Names.position, m_Location);
     m_LightShaderP->setFloat3(m_Names.ambient, m_Ambient);
     m_LightShaderP->setFloat3(m_Names.diffuse, m_Diffuse);

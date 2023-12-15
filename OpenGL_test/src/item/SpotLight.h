@@ -90,6 +90,7 @@ public:
     // SpotLight(const SpotLight&) { count++; }
 	~SpotLight();
 
+    static unsigned int GetCount();
     void Draw(VertexArray& VAO, Shader& lightSpotShader);
     void Update() override;
 };

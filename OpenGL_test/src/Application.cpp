@@ -71,7 +71,7 @@ int main()
         auto p = spotLightAlloc.allocate(4);
         auto q = p;
         spotLightAlloc.construct(q++, lightVAO, &ourShader);
-        spotLightAlloc.construct(q++, lightVAO, &ourShader);
+        //spotLightAlloc.construct(q++, lightVAO, &ourShader);
         spotLightAlloc.construct(q++, lightVAO, &ourShader);
         spotLightAlloc.construct(q++, lightVAO, &ourShader);
 
@@ -142,7 +142,7 @@ int main()
             // cube3.Draw(VAO, ourShader);
 
             camera.update(lightShader);
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < SpotLight::GetCount(); i++)
             {
                 p[i].Draw(lightVAO, lightShader);
             }
