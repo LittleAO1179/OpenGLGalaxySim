@@ -1,0 +1,28 @@
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Application.cpp
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\Application.cpp(134,24): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  Camera.cpp
+  FreeCamera.cpp
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\FreeCamera.cpp(57,27): warning C4305: “初始化”: 从“double”到“float”截断
+  Screen.cpp
+  IndexBuffer.cpp
+  Cube.cpp
+  Item.cpp
+  SpotLight.cpp
+  Renderer.cpp
+  shader.cpp
+  stb_image.cpp
+  Texture.cpp
+  VertexArray.cpp
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\VertexArray.cpp(36,3): warning C4312: “类型强制转换”: 从“unsigned int”转换到更大的“const void *”
+  正在生成代码...
+  正在编译...
+  VertexBuffer.cpp
+  正在生成代码...
+  OpenGL_test.vcxproj -> E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\x64\Debug\OpenGL_test.exe
