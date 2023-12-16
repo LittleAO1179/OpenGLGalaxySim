@@ -6,6 +6,7 @@
 class IndexBuffer
 {
 public:
+	IndexBuffer() = default;
 	/// <summary>
 	/// 索引缓冲类，用于存储各个顶点的索引。
 	/// </summary>

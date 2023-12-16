@@ -143,6 +143,7 @@
     <ClCompile Include="src\IndexBuffer.cpp" />
     <ClCompile Include="src\item\Cube.cpp" />
     <ClCompile Include="src\item\Item.cpp" />
+    <ClCompile Include="src\item\Shpere.cpp" />
     <ClCompile Include="src\item\SpotLight.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\shader.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\item\Cube.h" />
     <ClInclude Include="src\item\Item.h" />
+    <ClInclude Include="src\item\Shpere.h" />
     <ClInclude Include="src\item\SpotLight.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\shader.h" />

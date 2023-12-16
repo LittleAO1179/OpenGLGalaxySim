@@ -149,6 +149,9 @@
     <ClInclude Include="src\item\Item.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\item\Shpere.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\shader.vert" />
