@@ -17,7 +17,6 @@
 
 extern FreeCamera camera;
 
-int SpotLight::count = 0;
 int main()
 {
     // 初始化，生成窗口
@@ -36,20 +35,15 @@ int main()
 
     // 顶点数据
     {
+
         Shader ourShader("shader/shader.vert", "shader/shader.frag");
         Shader lightShader("shader/light.vert", "shader/light.frag");
-        //Texture texture("res/texture/container2.png", GL_RGBA);
-        //Texture texture_specular("res/texture/container2_specular.png", GL_RGBA);
+        Texture texture("res/texture/earth.png", GL_RGB);
+        // Texture texture_specular("res/texture/container2_specular.png", GL_RGBA);
 
-        float pos[3] = { 0.0f,0.0f,0.0f };
-        VertexArray VAO;
-        Sphere sphere1(VAO);
-
-        VertexArray lightVAO;
-
-        SpotLight spotlight(lightVAO, &ourShader);
-        spotlight.SetLocation(glm::vec3(2.0f,2.0f,2.0f));
-
+        Sphere sphere1;
+        SpotLight spotlight(&ourShader);
+        spotlight.SetLocation(glm::vec3(1.0f,1.0f,1.0f));
         ourShader.use();
 
         ourShader.setInt("material.diffuse", 0);
@@ -74,31 +68,30 @@ int main()
             ImGui_ImplGlfw_NewFrame();
             ImGui::NewFrame();
             ImGui::Text("Control Pannal");
-            ImGui::SliderFloat3("cube 1 location", pos, -2.0f, 2.0f);
             // (Your code calls glfwPollEvents())
             ImGui::SliderFloat3("cube 1 rotate", rotate_angle, 0, 360.0f);
             ImGui::SliderFloat3("cube 1 scale", scale_cube, 0, 2.0f);
             glfwPollEvents();
 
 
-            glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+            glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             processInput(window);
 
             camera.update(ourShader);
+            GLCall(glActiveTexture(GL_TEXTURE0));
+            texture.Bind();
+            //GLCall(glActiveTexture(GL_TEXTURE1));
+            //texture_specular.Bind();
+
             ourShader.setFloat3("viewPos", camera.GetPos());
 
-
-            float time = 0.000005 * (float)glfwGetTimerValue();
-
-            sphere1.Draw(VAO, ourShader);
+            sphere1.Draw(ourShader);
 
             camera.update(lightShader);
-            spotlight.Draw(lightVAO, lightShader);
 
-            // Rendering
-            // (Your code clears your framebuffer, renders your other stuff etc.)
+            spotlight.Draw(lightShader);
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
             // (Your code calls glfwSwapBuffers() etc.)

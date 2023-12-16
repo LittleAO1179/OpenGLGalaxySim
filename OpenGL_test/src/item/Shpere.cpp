@@ -32,30 +32,30 @@ void Sphere::init(int prec)
 	}
 }
 
-Sphere::Sphere(VertexArray& VAO, int prec)
+Sphere::Sphere(int prec)
 {
 	m_Prec = prec;
 	init(prec);
-	std::allocator<float> floatAlloc;
-	m_Vertices = floatAlloc.allocate(8 * m_Vertex.size());
-	auto q = m_Vertices;
 	for (int i = 0; i < m_Vertex.size(); i++)
 	{
-		floatAlloc.construct(q++, m_Vertex[i].x);
-		floatAlloc.construct(q++, m_Vertex[i].y);
-		floatAlloc.construct(q++, m_Vertex[i].z);
-		floatAlloc.construct(q++, m_Normals[i].x);
-		floatAlloc.construct(q++, m_Normals[i].y);
-		floatAlloc.construct(q++, m_Normals[i].z);
-		floatAlloc.construct(q++, m_TexCoords[i].x);
-		floatAlloc.construct(q++, m_TexCoords[i].y);
+		m_Vertices.push_back(m_Vertex[i].x);
+		m_Vertices.push_back(m_Vertex[i].y);
+		m_Vertices.push_back(m_Vertex[i].z);
+		m_Vertices.push_back(m_Normals[i].x);
+		m_Vertices.push_back(m_Normals[i].y);
+		m_Vertices.push_back(m_Normals[i].z);
+		m_Vertices.push_back(m_TexCoords[i].x);
+		m_Vertices.push_back(m_TexCoords[i].y);
 	}
-	m_VBOp = std::unique_ptr<VertexBuffer>(new VertexBuffer(m_Vertices, sizeof(float) * 8 * m_Vertex.size()));
-	m_Layout.Push<float>(3);
-	m_Layout.Push<float>(3);
-	m_Layout.Push<float>(2);
-	VAO.AddBuffer(*m_VBOp, m_Layout);
-	m_EBO = IndexBuffer(&m_Index[0], m_Vertex.size());
+	m_VAOp = std::unique_ptr<VertexArray>(new VertexArray);
+	m_VBOp = std::unique_ptr<VertexBuffer>(new VertexBuffer(&m_Vertices[0], sizeof(float) * 8 * m_Vertex.size()));
+	m_Layoutp = std::unique_ptr<VertexBufferLayout>(new VertexBufferLayout);
+	m_Layoutp->Push<float>(3);
+	m_Layoutp->Push<float>(3);
+	m_Layoutp->Push<float>(2);
+	m_EBOp = std::unique_ptr<IndexBuffer>(new IndexBuffer(&m_Index[0], m_Index.size()));
+	m_VAOp->AddBuffer(*m_VBOp, *m_Layoutp);
+
 	Update();
 }
 
@@ -63,17 +63,15 @@ Sphere::~Sphere()
 {
 }
 
-void Sphere::Draw(VertexArray& VAO, Shader& shader)
+void Sphere::Draw(Shader& shader)
 {
 	Update();
 	shader.setMat4fv("model", m_Model);
-	VAO.Bind();
-	m_EBO.Bind();
-	GLCall(glDepthFunc(GL_LEQUAL));
-	GLCall(glFrontFace(GL_CCW));// 锥体的三角形是逆时针的面认为是正方向
-	GLCall(glDrawArrays(GL_TRIANGLES, 0, m_Index.size()));
-	m_EBO.Unbind();
-	VAO.Unbind();
+	m_VAOp->Bind();
+	m_EBOp->Bind();
+	GLCall(glDrawElements(GL_TRIANGLES, m_EBOp->GetCount(), GL_UNSIGNED_INT, 0));
+	m_EBOp->Unbind();
+	m_VAOp->Unbind();
 }
 
 void Sphere::Update()

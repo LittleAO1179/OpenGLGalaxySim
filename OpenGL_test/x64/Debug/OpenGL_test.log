@@ -1,8 +1,2 @@
-﻿  Shpere.cpp
-E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Shpere.cpp(8,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Shpere.cpp(9,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Shpere.cpp(10,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Shpere.cpp(53,88): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
-E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Shpere.cpp(58,48): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
-E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Shpere.cpp(74,2): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+﻿  Application.cpp
   OpenGL_test.vcxproj -> E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\x64\Debug\OpenGL_test.exe

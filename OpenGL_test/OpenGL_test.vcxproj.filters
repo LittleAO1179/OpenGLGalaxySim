@@ -78,6 +78,9 @@
     <ClCompile Include="src\item\SpotLight.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\item\Shpere.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Renderer.h">
@@ -173,6 +176,9 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\texture\container2_specular.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\earth.jpg">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

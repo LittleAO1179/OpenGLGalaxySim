@@ -189,6 +189,7 @@
     <Image Include="res\texture\container.jpg" />
     <Image Include="res\texture\container2.png" />
     <Image Include="res\texture\container2_specular.png" />
+    <Image Include="res\texture\earth.jpg" />
     <Image Include="res\texture\plain.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

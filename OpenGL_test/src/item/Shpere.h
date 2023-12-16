@@ -11,7 +11,7 @@
 class Sphere : public Item
 {
 private:
-	float* m_Vertices;
+	std::vector<float> m_Vertices; 
 	std::vector<glm::vec3> m_Vertex;
 	std::vector<glm::vec2> m_TexCoords;
 	std::vector<glm::vec3> m_Normals;
@@ -22,16 +22,17 @@ private:
 
 	glm::mat4 m_Model;
 	
-	VertexBufferLayout m_Layout;
-	IndexBuffer m_EBO;
 	std::unique_ptr<VertexBuffer> m_VBOp;
+	std::unique_ptr<VertexArray> m_VAOp;
+	std::unique_ptr<IndexBuffer> m_EBOp;
+	std::unique_ptr<VertexBufferLayout> m_Layoutp;
 
 	void init(int prec);
 
 public:
-	Sphere(VertexArray& VAO, int prec = 48);
+	Sphere(int prec = 48);
 	~Sphere();
 
-	void Draw(VertexArray& VAO, Shader& shader);
+	void Draw(Shader& shader);
 	void Update() override;
 };
