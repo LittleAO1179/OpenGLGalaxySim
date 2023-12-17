@@ -169,16 +169,16 @@
     <Image Include="res\texture\container.jpg">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="res\texture\plain.jpg">
-      <Filter>资源文件</Filter>
-    </Image>
     <Image Include="res\texture\container2.png">
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\texture\container2_specular.png">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="res\texture\earth.jpg">
+    <Image Include="res\texture\earth.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\earth2k.png">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

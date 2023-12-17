@@ -1,19 +1,21 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 #include "shader.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "VertexArray.h"
 #include "Texture.h"
+
 #include "item/Cube.h"
-#include "camera/Camera.h"
-#include "camera/FreeCamera.h"
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
 #include "item/SpotLight.h"
 #include "item/Shpere.h"
+
+#include "camera/Camera.h"
+#include "camera/FreeCamera.h"
 
 extern FreeCamera camera;
 
@@ -38,12 +40,18 @@ int main()
 
         Shader ourShader("shader/shader.vert", "shader/shader.frag");
         Shader lightShader("shader/light.vert", "shader/light.frag");
-        Texture texture("res/texture/earth.png", GL_RGB);
+        Texture texture("res/texture/earth2k.png", GL_RGB);
         // Texture texture_specular("res/texture/container2_specular.png", GL_RGBA);
+        Texture texture2("res/texture/container.jpg", GL_RGB);
+
 
         Sphere sphere1;
         SpotLight spotlight(&ourShader);
         spotlight.SetLocation(glm::vec3(1.0f,1.0f,1.0f));
+
+        Cube cube1;
+        cube1.SetLocation(glm::vec3(-1.0f, -1.0f, -1.0f));
+
         ourShader.use();
 
         ourShader.setInt("material.diffuse", 0);
@@ -84,6 +92,10 @@ int main()
             sphere1.Draw(ourShader);
             sphere1.SetAngle(rotate_angle);
             Scale(sphere1, scale_cube);
+
+            GLCall(glActiveTexture(GL_TEXTURE0));
+            texture2.Bind();
+            cube1.Draw(ourShader);
 
             camera.update(lightShader);
 
