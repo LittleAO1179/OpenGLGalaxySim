@@ -7,6 +7,13 @@ void Scale(Item &item, glm::vec3 size)
 	item.m_Scale = size;
 }
 
+void Scale(Item& item, float size[3])
+{
+	item.m_Scale.x = size[0];
+	item.m_Scale.y = size[1];
+	item.m_Scale.z = size[2];
+}
+
 void Item::SetEnable(bool flag)
 {
 	if (flag)
@@ -24,6 +31,13 @@ void Item::SetLocation(glm::vec3 location)
 void Item::SetAngle(glm::vec3 angle)
 {
 	m_Angle = angle;
+}
+
+void Item::SetAngle(float angles[3])
+{
+	m_Angle.x = angles[0];
+	m_Angle.y = angles[1];
+	m_Angle.z = angles[2];
 }
 
 void Item::Update()

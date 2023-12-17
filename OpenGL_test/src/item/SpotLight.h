@@ -38,7 +38,7 @@ private:
     std::unique_ptr<VertexBuffer> m_VBOp;
     std::unique_ptr<VertexArray> m_VAOp;
     std::unique_ptr<VertexBufferLayout> m_Layoutp;
-    std::unique_ptr<Shader> m_LightShaderP;
+    Shader* m_LightShaderP;
     std::unique_ptr<SpotLightNames> m_Names;
     
     static int count;

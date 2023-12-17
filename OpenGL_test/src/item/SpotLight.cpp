@@ -66,7 +66,7 @@ SpotLight::SpotLight(Shader* itemShader)
     m_VAOp->AddBuffer(*m_VBOp, *m_Layoutp);
     m_VBOp->Unbind();
     m_Scale = glm::vec3(0.2f);
-    m_LightShaderP = std::unique_ptr<Shader>(std::move(itemShader));
+    m_LightShaderP = itemShader;
 
 
     m_Names = std::unique_ptr<SpotLightNames>(new SpotLightNames);

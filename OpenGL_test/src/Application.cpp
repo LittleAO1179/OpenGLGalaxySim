@@ -50,12 +50,6 @@ int main()
         ourShader.setInt("material.specular", 1);
         ourShader.setFloat("material.shininess", 64.0f);
 
-        ourShader.setFloat3("dirLight.direction", -0.2f, -1.0f, -0.3f);
-        ourShader.setFloat3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
-        ourShader.setFloat3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
-        ourShader.setFloat3("dirLight.specular", 0.5f, 0.5f, 0.5f);
-
-
         float rotate_angle[3] = {0.0f, 0.0f, 0.0f};
         float scale_cube[3] = {1.0f, 1.0f, 1.0f};
         glEnable(GL_DEPTH_TEST);
@@ -88,6 +82,8 @@ int main()
             ourShader.setFloat3("viewPos", camera.GetPos());
 
             sphere1.Draw(ourShader);
+            sphere1.SetAngle(rotate_angle);
+            Scale(sphere1, scale_cube);
 
             camera.update(lightShader);
 

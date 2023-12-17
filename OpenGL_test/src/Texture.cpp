@@ -3,6 +3,7 @@
 Texture::Texture(const char* path, GLint type)
 {
 	unsigned char* data;
+	stbi_set_flip_vertically_on_load(true);
 	data = stbi_load(path, &m_Width, &m_Height, &m_NrChannels, 0);
 	if (!data)
 	{
