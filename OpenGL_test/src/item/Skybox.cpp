@@ -4,7 +4,7 @@
 SkyBox::SkyBox(Shader* skyBoxShader, std::vector<std::string> paths)
 {
 	m_ShaderP = skyBoxShader;
-	m_PathsP = std::unique_ptr<std::vector<std::string>>(new std::vector<std::string>);
+	std::unique_ptr<std::vector<std::string>> m_PathsP = std::unique_ptr<std::vector<std::string>>(new std::vector<std::string>);
 	if (paths[0] == "default")
 	{
 		m_PathsP->push_back("res/texture/skybox/right.png");
@@ -42,6 +42,7 @@ SkyBox::SkyBox(Shader* skyBoxShader, std::vector<std::string> paths)
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);;
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);;
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);;
+
 }
 
 void SkyBox::Draw(Camera* mainCamera)

@@ -8,7 +8,7 @@
 class SkyBox : public Cube
 {
 private:
-	std::unique_ptr<std::vector<std::string>> m_PathsP;
+	
 	Shader* m_ShaderP;
 	unsigned int m_TextureID;
 
