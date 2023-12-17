@@ -81,6 +81,9 @@
     <ClCompile Include="src\item\Shpere.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\item\Skybox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Renderer.h">
@@ -155,12 +158,17 @@
     <ClInclude Include="src\item\Shpere.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\item\Skybox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\shader.vert" />
     <None Include="shader\shader.frag" />
     <None Include="shader\light.frag" />
     <None Include="shader\light.vert" />
+    <None Include="shader\skybox.frag" />
+    <None Include="shader\skybox.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\texture\awesomeface.png">
@@ -179,6 +187,24 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\texture\earth2k.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\skybox\top.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\skybox\bottom.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\skybox\front.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\skybox\left.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\skybox\back.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\texture\skybox\right.png">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

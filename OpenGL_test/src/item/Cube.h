@@ -11,7 +11,7 @@
 
 class Cube : public Item
 {
-private:
+protected:
 	glm::mat4 m_Model;
 
     std::vector<float> m_Vertices;

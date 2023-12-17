@@ -13,6 +13,7 @@
 #include "item/Cube.h"
 #include "item/SpotLight.h"
 #include "item/Shpere.h"
+#include "item/Skybox.h"
 
 #include "camera/Camera.h"
 #include "camera/FreeCamera.h"
@@ -40,9 +41,10 @@ int main()
 
         Shader ourShader("shader/shader.vert", "shader/shader.frag");
         Shader lightShader("shader/light.vert", "shader/light.frag");
+        Shader skyboxShader("shader/skybox.vert", "shader/skybox.frag");
         Texture texture("res/texture/earth2k.png", GL_RGB);
         // Texture texture_specular("res/texture/container2_specular.png", GL_RGBA);
-        Texture texture2("res/texture/container.jpg", GL_RGB);
+        //Texture texture2("res/texture/container.jpg", GL_RGB);
 
 
         Sphere sphere1;
@@ -52,11 +54,14 @@ int main()
         Cube cube1;
         cube1.SetLocation(glm::vec3(-1.0f, -1.0f, -1.0f));
 
+        SkyBox skybox(&skyboxShader);
+
         ourShader.use();
 
         ourShader.setInt("material.diffuse", 0);
         ourShader.setInt("material.specular", 1);
         ourShader.setFloat("material.shininess", 64.0f);
+
 
         float rotate_angle[3] = {0.0f, 0.0f, 0.0f};
         float scale_cube[3] = {1.0f, 1.0f, 1.0f};
@@ -81,22 +86,19 @@ int main()
 
             processInput(window);
 
+            float time = glfwGetTimerValue() * 0.000005f;
+
             camera.update(ourShader);
             GLCall(glActiveTexture(GL_TEXTURE0));
-            texture.Bind();
-            //GLCall(glActiveTexture(GL_TEXTURE1));
-            //texture_specular.Bind();
 
             ourShader.setFloat3("viewPos", camera.GetPos());
 
             sphere1.Draw(ourShader);
             sphere1.SetAngle(rotate_angle);
+            sphere1.SetAngle(glm::vec3(0.0f, time, 0.0f));
             Scale(sphere1, scale_cube);
-
-            GLCall(glActiveTexture(GL_TEXTURE0));
-            texture2.Bind();
-            cube1.Draw(ourShader);
-
+            
+            skybox.Draw(&camera);
             camera.update(lightShader);
 
             spotlight.Draw(lightShader);

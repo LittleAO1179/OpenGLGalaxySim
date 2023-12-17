@@ -1,1 +1,5 @@
-﻿  OpenGL_test.vcxproj -> E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\x64\Debug\OpenGL_test.exe
+﻿  Application.cpp
+  FreeCamera.cpp
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\FreeCamera.cpp(57,27): warning C4305: “初始化”: 从“double”到“float”截断
+  正在生成代码...
+  OpenGL_test.vcxproj -> E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\x64\Debug\OpenGL_test.exe
