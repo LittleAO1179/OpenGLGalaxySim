@@ -1,6 +1,5 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
@@ -14,6 +13,7 @@
 #include "item/SpotLight.h"
 #include "item/Shpere.h"
 #include "item/Skybox.h"
+#include "gravity/planet.h"
 
 #include "camera/Camera.h"
 #include "camera/FreeCamera.h"
@@ -47,7 +47,20 @@ int main()
         //Texture texture2("res/texture/container.jpg", GL_RGB);
 
 
-        Sphere sphere1;
+        Planet planet1(glm::vec3(25.0f, 20.0f, 0.0f), 2.0);
+        Scale(planet1, glm::vec3(0.4f, 0.4f, 0.4f));
+        planet1.SetLocation(glm::vec3(0.0f, 4* 1.0f, 0.0f));
+        Planet planet2(glm::vec3(20.0f, 1.0f, 0.0f), 500.0);
+        planet2.SetLocation(glm::vec3(0.0f * -4 * 1.0f, 0.0f, 0.0f));
+
+        Planet planet3(glm::vec3(0.0f, 25.0f, 0.0f), 2.0);
+        Scale(planet3, glm::vec3(0.4f, 0.4f, 0.4f));
+        planet3.SetLocation(glm::vec3(0.0f, 0.0f, 4.0f));
+
+        Planet planet4(glm::vec3(0.0f, 0.0f, 0.0f), 50.0);
+        planet4.SetLocation(glm::vec3(10.0f, 0.0f, 10.0f));
+
+
         SpotLight spotlight(&ourShader);
         spotlight.SetLocation(glm::vec3(1.0f,1.0f,1.0f));
 
@@ -62,9 +75,6 @@ int main()
         ourShader.setInt("material.specular", 1);
         ourShader.setFloat("material.shininess", 64.0f);
 
-
-        float rotate_angle[3] = {0.0f, 0.0f, 0.0f};
-        float scale_cube[3] = {1.0f, 1.0f, 1.0f};
         glEnable(GL_DEPTH_TEST);
 
         while (!glfwWindowShouldClose(window))
@@ -74,12 +84,9 @@ int main()
             ImGui_ImplOpenGL3_NewFrame();
             ImGui_ImplGlfw_NewFrame();
             ImGui::NewFrame();
-            ImGui::Text("Control Pannal");
             // (Your code calls glfwPollEvents())
-            ImGui::SliderFloat3("cube 1 rotate", rotate_angle, 0, 360.0f);
-            ImGui::SliderFloat3("cube 1 scale", scale_cube, 0, 2.0f);
-            glfwPollEvents();
 
+            glfwPollEvents();
 
             glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -91,17 +98,26 @@ int main()
             camera.update(ourShader);
             GLCall(glActiveTexture(GL_TEXTURE0));
 
-            ourShader.setFloat3("viewPos", camera.GetPos());
 
-            sphere1.Draw(ourShader);
-            sphere1.SetAngle(rotate_angle);
-            sphere1.SetAngle(glm::vec3(0.0f, time, 0.0f));
-            Scale(sphere1, scale_cube);
+
+            ourShader.setFloat3("viewPos", camera.GetPos());
             
             skybox.Draw(&camera);
             camera.update(lightShader);
 
-            spotlight.Draw(lightShader);
+            planet1.Draw(lightShader);
+            planet1.Debug("planet1");
+            planet2.Draw(lightShader);
+            planet2.Debug("planet2");
+            planet4.Draw(lightShader);
+            planet4.Debug("planet4");
+            planet3.Draw(lightShader);
+            planet3.Debug("planet3");
+
+
+            Planet::Runing(0.00005f);
+
+            // spotlight.Draw(lightShader);
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
             // (Your code calls glfwSwapBuffers() etc.)

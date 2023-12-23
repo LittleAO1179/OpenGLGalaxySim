@@ -1,6 +1,8 @@
 #include "Item.h"
 
 #include <iostream>
+#include "caculate/GLMSwitch.h"
+#include "caculate/AngleCaculate.h"
 
 void Scale(Item &item, glm::vec3 size)
 {
@@ -35,14 +37,34 @@ void Item::SetAngle(glm::vec3 angle)
 
 void Item::SetAngle(float angles[3])
 {
-	m_Angle.x = angles[0];
-	m_Angle.y = angles[1];
-	m_Angle.z = angles[2];
+	m_Angle = GLMSwitch::float3ToVec3(angles);
+	AngleCal::ResetAngle(m_Angle);
+}
+
+void Item::Rotate(glm::vec3 angle)
+{
+	m_Angle += angle;
+	AngleCal::ResetAngle(m_Angle);
+}
+
+glm::vec3 Item::GetPos() const
+{
+	return m_Location;
 }
 
 void Item::Update()
 {
 	std::cout << "请检查，该物体没有实体可以显示。" << std::endl;
 	ASSERT(false);
+}
+
+void Item::Debug(std::string name)
+{
+	float location[3] = {m_Location.x, m_Location.y, m_Location.z};
+	float angle[3] = { m_Angle.x, m_Angle.y, m_Angle.z };
+	float scale[3] = { m_Scale.x, m_Scale.y, m_Scale.z };
+	ImGui::SliderFloat3((name + " location").c_str(),location, 0, 20.0f);
+	ImGui::SliderFloat3((name + " rotate").c_str(), angle, 0, 360.0f);
+	ImGui::SliderFloat3((name + " scale").c_str(), scale, 0, 2.0f);
 }
 

@@ -84,6 +84,9 @@
     <ClCompile Include="src\item\Skybox.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\gravity\planet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Renderer.h">
@@ -159,6 +162,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\item\Skybox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\caculate\GLMSwitch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\caculate\AngleCaculate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gravity\planet.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -76,6 +76,7 @@ void Sphere::Draw(Shader& shader)
 
 void Sphere::Update()
 {
+
 	m_Model = glm::mat4(1.0f);
 	m_Model = glm::translate(m_Model, m_Location);
 	m_Model = glm::scale(m_Model, m_Scale);

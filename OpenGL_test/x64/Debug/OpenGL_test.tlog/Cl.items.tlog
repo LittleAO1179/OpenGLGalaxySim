@@ -9,6 +9,7 @@ E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\Application.cpp
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\Camera.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Camera.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\FreeCamera.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\FreeCamera.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\Screen.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Screen.obj
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\gravity\planet.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\planet.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\IndexBuffer.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\IndexBuffer.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Cube.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Cube.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Item.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Item.obj
