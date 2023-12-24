@@ -37,13 +37,14 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
     float diff = max(dot(normal, lightDir), 0.0);
     // 镜面光着色
     vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess) * 0.3;
     // 衰减
     float distance    = length(light.position - fragPos);
     float attenuation = 1.0 / (light.constant + light.linear * distance + 
                  light.quadratic * (distance * distance));    
 
     // 选择昼夜贴图
+    vec3 warmYellow = vec3(1.0, 0.6, 0.2);
     vec3 dayColor = vec3(texture(material.diffuse, TexCoords));
     vec3 nightColor = vec3(texture(material.night, TexCoords));
     // 使用太阳位置和法线的点积来决定是使用白天图还是夜晚图
@@ -62,7 +63,7 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
         float factor = smoothstep(-0.2, 0.2, sunFactor);
         vec3 ambient = mix(nightColor, light.ambient * dayColor, factor);
         vec3 diffuse = light.diffuse  * diff * dayColor;
-        vec3 specular= light.specular * spec * vec3(texture(material.specular, TexCoords));
+        vec3 specular= light.specular * spec * vec3(texture(material.specular, TexCoords)).r * warmYellow;
         ambient  *= attenuation;
         diffuse  *= attenuation;
         specular *= attenuation;
@@ -73,7 +74,7 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
         color = dayColor;
         vec3 ambient  = light.ambient  * color;
         vec3 diffuse  = light.diffuse  * diff * color;
-        vec3 specular = light.specular * spec * vec3(texture(material.specular, TexCoords));
+        vec3 specular = light.specular * spec * vec3(texture(material.specular, TexCoords)).r * warmYellow;
         ambient  *= attenuation;
         diffuse  *= attenuation;
         specular *= attenuation;

@@ -42,7 +42,7 @@ int main()
         Shader skyboxShader("shader/skybox.vert", "shader/skybox.frag");
         Texture sunTexture("res/texture/2k_sun.jpg", GL_RGB);
         Texture earthDayTexture("res/texture/2k_earth_daymap.jpg", GL_RGB);
-        // Texture earthDaySpecular("res/texture/2k_earth_specular_map.png", GL_RGB);
+        Texture earthDaySpecular("res/texture/2k_earth_specular_map.jpg", GL_RED);
         Texture earthNightTexture("res/texture/2k_earth_nightmap.jpg", GL_RGB);
         Texture marsTexture("res/texture/2k_mars.jpg", GL_RGB);
 
@@ -80,7 +80,7 @@ int main()
         planetShader.setInt("material.diffuse", 0);
         planetShader.setInt("material.night", 1);
         planetShader.setInt("material.specular", 2);
-        planetShader.setFloat("material.shininess", 64.0f);
+        planetShader.setFloat("material.shininess", 4.0f);
 
         glEnable(GL_DEPTH_TEST);
 
@@ -114,9 +114,12 @@ int main()
             earthDayTexture.Bind();
             glActiveTexture(GL_TEXTURE1);
             earthNightTexture.Bind();
+            glActiveTexture(GL_TEXTURE2);
+            earthDaySpecular.Bind();
             earth.Draw(planetShader);
             earthDayTexture.Unbind();
             earthNightTexture.Unbind();
+            earthDaySpecular.Unbind();
 
             glActiveTexture(GL_TEXTURE0);
             marsTexture.Bind();
