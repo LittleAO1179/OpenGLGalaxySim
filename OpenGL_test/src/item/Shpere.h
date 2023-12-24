@@ -8,9 +8,21 @@
 
 #include <vector>
 
+struct SpotLightNames
+{
+	std::string name;
+	std::string position;
+	std::string ambient;
+	std::string diffuse;
+	std::string specular;
+	std::string constant;
+	std::string linear;
+	std::string quadratic;
+};
+
 class Sphere : public Item
 {
-private:
+protected:
 	std::vector<float> m_Vertices; 
 	std::vector<glm::vec3> m_Vertex;
 	std::vector<glm::vec2> m_TexCoords;
@@ -33,6 +45,6 @@ public:
 	Sphere(int prec = 48);
 	~Sphere();
 
-	void Draw(Shader& shader);
+	virtual void Draw(Shader& shader);
 	void Update() override;
 };

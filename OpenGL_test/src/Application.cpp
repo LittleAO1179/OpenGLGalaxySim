@@ -9,11 +9,9 @@
 #include "VertexArray.h"
 #include "Texture.h"
 
-#include "item/Cube.h"
-#include "item/SpotLight.h"
-#include "item/Shpere.h"
 #include "item/Skybox.h"
 #include "gravity/planet.h"
+#include "gravity/stellar.h"
 
 #include "camera/Camera.h"
 #include "camera/FreeCamera.h"
@@ -39,41 +37,50 @@ int main()
     // ¶¥µãÊý¾Ý
     {
 
-        Shader ourShader("shader/shader.vert", "shader/shader.frag");
-        Shader lightShader("shader/light.vert", "shader/light.frag");
+        Shader sunShader("shader/shader.vert", "shader/shader.frag");
+        Shader planetShader("shader/planet.vert", "shader/planet.frag");
         Shader skyboxShader("shader/skybox.vert", "shader/skybox.frag");
-        Texture texture("res/texture/earth2k.png", GL_RGB);
-        // Texture texture_specular("res/texture/container2_specular.png", GL_RGBA);
-        //Texture texture2("res/texture/container.jpg", GL_RGB);
+        Texture sunTexture("res/texture/2k_sun.jpg", GL_RGB);
+        Texture earthDayTexture("res/texture/2k_earth_daymap.jpg", GL_RGB);
+        // Texture earthDaySpecular("res/texture/2k_earth_specular_map.png", GL_RGB);
+        Texture earthNightTexture("res/texture/2k_earth_nightmap.jpg", GL_RGB);
+        Texture marsTexture("res/texture/2k_mars.jpg", GL_RGB);
 
 
-        Planet planet1(glm::vec3(25.0f, 20.0f, 0.0f), 2.0);
-        Scale(planet1, glm::vec3(0.4f, 0.4f, 0.4f));
-        planet1.SetLocation(glm::vec3(0.0f, 4* 1.0f, 0.0f));
-        Planet planet2(glm::vec3(20.0f, 1.0f, 0.0f), 500.0);
-        planet2.SetLocation(glm::vec3(0.0f * -4 * 1.0f, 0.0f, 0.0f));
-
-        Planet planet3(glm::vec3(0.0f, 25.0f, 0.0f), 2.0);
-        Scale(planet3, glm::vec3(0.4f, 0.4f, 0.4f));
-        planet3.SetLocation(glm::vec3(0.0f, 0.0f, 4.0f));
-
-        Planet planet4(glm::vec3(0.0f, 0.0f, 0.0f), 50.0);
-        planet4.SetLocation(glm::vec3(10.0f, 0.0f, 10.0f));
+        Stellar sun(500.0f, &planetShader);
+        sun.SetLocation(glm::vec3(0.0f, 4* 1.0f, 0.0f));
 
 
-        SpotLight spotlight(&ourShader);
-        spotlight.SetLocation(glm::vec3(1.0f,1.0f,1.0f));
+        //Stellar sun2(300.0f, &planetShader);
+        //sun2.SetLocation(glm::vec3(0.0f, 10 * 1.0f, 0.0f));
+        //sun2.SetSpeed(glm::vec3(40.0f, 0.0f, 0.0f));
+        //sun2.SetAngle(glm::vec3(45.0f, 30.0f, 20.0f));
+        //Scale(sun2, glm::vec3(0.95f, 0.95f, 0.95f));
 
-        Cube cube1;
-        cube1.SetLocation(glm::vec3(-1.0f, -1.0f, -1.0f));
+        //Stellar sun3(500.0f, &planetShader);
+        //sun3.SetLocation(glm::vec3(0.0f, - 2.0f, 0.0f));
+        //sun3.SetSpeed(glm::vec3(20.0f, 0.0f, 20.0f));
+        //sun3.SetAngle(glm::vec3(45.0f, 00.0f, 20.0f));
+        //Scale(sun3, glm::vec3(0.9f, 0.9f, 0.9f));
+
+        Planet earth(glm::vec3(0.0f, 1.0f, 30.0f), 2.0);
+        earth.SetLocation(glm::vec3(-4 * 1.0f, 4 * 1.0f, 0.0f));
+        Scale(earth, glm::vec3(0.4f, 0.4f, 0.4f));
+
+        Planet mars(glm::vec3(0.0f , 1.0f, -30.0f), 2.0);
+        mars.SetLocation(glm::vec3(0.0f, 0.0f, 0.0f));
+        Scale(mars, glm::vec3(0.4f, 0.4f, 0.4f));
 
         SkyBox skybox(&skyboxShader);
 
-        ourShader.use();
+        planetShader.use();
 
-        ourShader.setInt("material.diffuse", 0);
-        ourShader.setInt("material.specular", 1);
-        ourShader.setFloat("material.shininess", 64.0f);
+
+
+        planetShader.setInt("material.diffuse", 0);
+        planetShader.setInt("material.night", 1);
+        planetShader.setInt("material.specular", 2);
+        planetShader.setFloat("material.shininess", 64.0f);
 
         glEnable(GL_DEPTH_TEST);
 
@@ -95,29 +102,38 @@ int main()
 
             float time = glfwGetTimerValue() * 0.000005f;
 
-            camera.update(ourShader);
-            GLCall(glActiveTexture(GL_TEXTURE0));
+            camera.update(sunShader);
+            sunTexture.Bind();
+            sun.Draw(sunShader);
+           // sun2.Draw(sunShader);
+           // sun3.Draw(sunShader);
+            sunTexture.Unbind();
 
 
+            glActiveTexture(GL_TEXTURE0);
+            earthDayTexture.Bind();
+            glActiveTexture(GL_TEXTURE1);
+            earthNightTexture.Bind();
+            earth.Draw(planetShader);
+            earthDayTexture.Unbind();
+            earthNightTexture.Unbind();
 
-            ourShader.setFloat3("viewPos", camera.GetPos());
+            glActiveTexture(GL_TEXTURE0);
+            marsTexture.Bind();
+            mars.Draw(planetShader);
+
+            earth.Debug("Earth");
+            mars.Debug("Mars");
+            sun.Debug("Sun 1");
+            //sun2.Debug("Sun 2");
+           // sun3.Debug("Sun 3");
+
+            Planet::Runing(0.0001f, time, window);
+
+            planetShader.setFloat3("viewPos", camera.GetPos());
             
             skybox.Draw(&camera);
-            camera.update(lightShader);
-
-            planet1.Draw(lightShader);
-            planet1.Debug("planet1");
-            planet2.Draw(lightShader);
-            planet2.Debug("planet2");
-            planet4.Draw(lightShader);
-            planet4.Debug("planet4");
-            planet3.Draw(lightShader);
-            planet3.Debug("planet3");
-
-
-            Planet::Runing(0.00005f);
-
-            // spotlight.Draw(lightShader);
+            camera.update(planetShader);
             ImGui::Render();
             ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
             // (Your code calls glfwSwapBuffers() etc.)

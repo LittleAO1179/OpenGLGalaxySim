@@ -66,6 +66,7 @@ Sphere::~Sphere()
 void Sphere::Draw(Shader& shader)
 {
 	Update();
+	shader.use();
 	shader.setMat4fv("model", m_Model);
 	m_VAOp->Bind();
 	m_EBOp->Bind();

@@ -141,6 +141,7 @@
     <ClCompile Include="src\camera\FreeCamera.cpp" />
     <ClCompile Include="src\camera\Screen.cpp" />
     <ClCompile Include="src\gravity\planet.cpp" />
+    <ClCompile Include="src\gravity\stellar.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp" />
     <ClCompile Include="src\item\Cube.cpp" />
     <ClCompile Include="src\item\Item.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="src\item\Shpere.h" />
     <ClInclude Include="src\item\Skybox.h" />
     <ClInclude Include="src\item\SpotLight.h" />
+    <ClInclude Include="src\gravity\stellar.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\shader.h" />
     <ClInclude Include="src\Texture.h" />
@@ -187,12 +189,19 @@
   <ItemGroup>
     <None Include="shader\light.frag" />
     <None Include="shader\light.vert" />
+    <None Include="shader\planet.frag" />
+    <None Include="shader\planet.vert" />
     <None Include="shader\shader.frag" />
     <None Include="shader\shader.vert" />
     <None Include="shader\skybox.frag" />
     <None Include="shader\skybox.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\texture\2k_earth_nightmap.jpg" />
+    <Image Include="res\texture\2k_earth_specular_map.jpg" />
+    <Image Include="res\texture\2k_earth_specular_map.png" />
+    <Image Include="res\texture\2k_mars.jpg" />
+    <Image Include="res\texture\2k_sun.jpg" />
     <Image Include="res\texture\awesomeface.png" />
     <Image Include="res\texture\container.jpg" />
     <Image Include="res\texture\container2.png" />
