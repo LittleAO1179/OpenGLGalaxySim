@@ -51,17 +51,17 @@ int main()
         sun.SetLocation(glm::vec3(0.0f, 4* 1.0f, 0.0f));
 
 
-        //Stellar sun2(300.0f, &planetShader);
-        //sun2.SetLocation(glm::vec3(0.0f, 10 * 1.0f, 0.0f));
-        //sun2.SetSpeed(glm::vec3(40.0f, 0.0f, 0.0f));
-        //sun2.SetAngle(glm::vec3(45.0f, 30.0f, 20.0f));
-        //Scale(sun2, glm::vec3(0.95f, 0.95f, 0.95f));
+        Stellar sun2(300.0f, &planetShader);
+        sun2.SetLocation(glm::vec3(0.0f, 10 * 1.0f, 0.0f));
+        sun2.SetSpeed(glm::vec3(40.0f, 0.0f, 0.0f));
+        sun2.SetAngle(glm::vec3(45.0f, 30.0f, 20.0f));
+        Scale(sun2, glm::vec3(0.95f, 0.95f, 0.95f));
 
-        //Stellar sun3(500.0f, &planetShader);
-        //sun3.SetLocation(glm::vec3(0.0f, - 2.0f, 0.0f));
-        //sun3.SetSpeed(glm::vec3(20.0f, 0.0f, 20.0f));
-        //sun3.SetAngle(glm::vec3(45.0f, 00.0f, 20.0f));
-        //Scale(sun3, glm::vec3(0.9f, 0.9f, 0.9f));
+        Stellar sun3(500.0f, &planetShader);
+        sun3.SetLocation(glm::vec3(0.0f, - 2.0f, 0.0f));
+        sun3.SetSpeed(glm::vec3(20.0f, 0.0f, 20.0f));
+        sun3.SetAngle(glm::vec3(45.0f, 00.0f, 20.0f));
+        Scale(sun3, glm::vec3(0.9f, 0.9f, 0.9f));
 
         Planet earth(glm::vec3(0.0f, 1.0f, 30.0f), 2.0);
         earth.SetLocation(glm::vec3(-4 * 1.0f, 4 * 1.0f, 0.0f));
@@ -105,8 +105,8 @@ int main()
             camera.update(sunShader);
             sunTexture.Bind();
             sun.Draw(sunShader);
-           // sun2.Draw(sunShader);
-           // sun3.Draw(sunShader);
+            sun2.Draw(sunShader);
+            sun3.Draw(sunShader);
             sunTexture.Unbind();
 
 
@@ -128,8 +128,8 @@ int main()
             earth.Debug("Earth");
             mars.Debug("Mars");
             sun.Debug("Sun 1");
-            //sun2.Debug("Sun 2");
-           // sun3.Debug("Sun 3");
+            sun2.Debug("Sun 2");
+            sun3.Debug("Sun 3");
 
             Planet::Runing(0.0001f, time, window);
 

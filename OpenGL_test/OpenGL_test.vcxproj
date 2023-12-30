@@ -197,6 +197,7 @@
     <None Include="shader\skybox.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\texture\2k_earth_daymap.jpg" />
     <Image Include="res\texture\2k_earth_nightmap.jpg" />
     <Image Include="res\texture\2k_earth_specular_map.jpg" />
     <Image Include="res\texture\2k_earth_specular_map.png" />
