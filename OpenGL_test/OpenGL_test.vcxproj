@@ -140,9 +140,13 @@
     <ClCompile Include="src\camera\Camera.cpp" />
     <ClCompile Include="src\camera\FreeCamera.cpp" />
     <ClCompile Include="src\camera\Screen.cpp" />
+    <ClCompile Include="src\gravity\planet.cpp" />
+    <ClCompile Include="src\gravity\stellar.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp" />
     <ClCompile Include="src\item\Cube.cpp" />
     <ClCompile Include="src\item\Item.cpp" />
+    <ClCompile Include="src\item\Shpere.cpp" />
+    <ClCompile Include="src\item\Skybox.cpp" />
     <ClCompile Include="src\item\SpotLight.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\shader.cpp" />
@@ -162,13 +166,19 @@
     <ClInclude Include="dep\imgui\imstb_textedit.h" />
     <ClInclude Include="dep\imgui\imstb_truetype.h" />
     <ClInclude Include="dep\stb_image\stb_image.h" />
+    <ClInclude Include="src\caculate\AngleCaculate.h" />
+    <ClInclude Include="src\caculate\GLMSwitch.h" />
     <ClInclude Include="src\camera\Camera.h" />
     <ClInclude Include="src\camera\FreeCamera.h" />
     <ClInclude Include="src\camera\Screen.h" />
+    <ClInclude Include="src\gravity\planet.h" />
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\item\Cube.h" />
     <ClInclude Include="src\item\Item.h" />
+    <ClInclude Include="src\item\Shpere.h" />
+    <ClInclude Include="src\item\Skybox.h" />
     <ClInclude Include="src\item\SpotLight.h" />
+    <ClInclude Include="src\gravity\stellar.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\shader.h" />
     <ClInclude Include="src\Texture.h" />
@@ -179,15 +189,32 @@
   <ItemGroup>
     <None Include="shader\light.frag" />
     <None Include="shader\light.vert" />
+    <None Include="shader\planet.frag" />
+    <None Include="shader\planet.vert" />
     <None Include="shader\shader.frag" />
     <None Include="shader\shader.vert" />
+    <None Include="shader\skybox.frag" />
+    <None Include="shader\skybox.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\texture\2k_earth_daymap.jpg" />
+    <Image Include="res\texture\2k_earth_nightmap.jpg" />
+    <Image Include="res\texture\2k_earth_specular_map.jpg" />
+    <Image Include="res\texture\2k_earth_specular_map.png" />
+    <Image Include="res\texture\2k_mars.jpg" />
+    <Image Include="res\texture\2k_sun.jpg" />
     <Image Include="res\texture\awesomeface.png" />
     <Image Include="res\texture\container.jpg" />
     <Image Include="res\texture\container2.png" />
     <Image Include="res\texture\container2_specular.png" />
-    <Image Include="res\texture\plain.jpg" />
+    <Image Include="res\texture\earth.png" />
+    <Image Include="res\texture\earth2k.png" />
+    <Image Include="res\texture\skybox\back.png" />
+    <Image Include="res\texture\skybox\bottom.png" />
+    <Image Include="res\texture\skybox\front.png" />
+    <Image Include="res\texture\skybox\left.png" />
+    <Image Include="res\texture\skybox\right.png" />
+    <Image Include="res\texture\skybox\top.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

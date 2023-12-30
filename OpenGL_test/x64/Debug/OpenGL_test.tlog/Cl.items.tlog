@@ -9,9 +9,13 @@ E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\Application.cpp
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\Camera.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Camera.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\FreeCamera.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\FreeCamera.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\camera\Screen.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Screen.obj
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\gravity\planet.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\planet.obj
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\gravity\stellar.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\stellar.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\IndexBuffer.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\IndexBuffer.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Cube.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Cube.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Item.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Item.obj
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Shpere.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Shpere.obj
+E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\Skybox.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Skybox.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\item\SpotLight.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\SpotLight.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\Renderer.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\Renderer.obj
 E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\src\shader.cpp;E:\VSProject\OpenGL\OpenGL_test\MordenOpenGLTest\OpenGL_test\x64\Debug\shader.obj
