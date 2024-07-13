@@ -1,4 +1,3 @@
-includes("@buildin/xpack")
 add_rules("mode.debug", "mode.release")
 
 -- 添加对 GLFW3 的依赖

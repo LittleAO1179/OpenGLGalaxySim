@@ -1,3 +1,0 @@
-error: while looking for glfw:x64-windows-static:
-D:\msys64\vcpkg\ports\glfw: error: glfw does not exist
-
