@@ -1,0 +1,25 @@
+{
+    errdata = "In file included from dep\\stb_image\\stb_image.cpp:2:\
+\27[1mdep\\stb_image/stb_image.h:3421:16: \27[0m\27[0;1;35mwarning: \27[0m\27[1mequality comparison with extraneous parentheses [-Wparentheses-equality]\27[0m\
+ 3421 |       if (((m) == 0xda)) {\27[0m\
+      | \27[0;1;32m           ~~~~^~~~~~~\
+\27[0m\27[1mdep\\stb_image/stb_image.h:3421:16: \27[0m\27[0;1;36mnote: \27[0mremove extraneous parentheses around the comparison to silence this warning\27[0m\
+ 3421 |       if (((m) == 0xda)) {\27[0m\
+      | \27[0;1;32m          ~    ^      ~\
+\27[0m\27[1mdep\\stb_image/stb_image.h:3421:16: \27[0m\27[0;1;36mnote: \27[0muse '=' to turn this equality comparison into an assignment\27[0m\
+ 3421 |       if (((m) == 0xda)) {\27[0m\
+      | \27[0;1;32m               ^~\
+\27[0m      | \27[0;32m               =\
+\27[0m\27[1mdep\\stb_image/stb_image.h:3431:23: \27[0m\27[0;1;35mwarning: \27[0m\27[1mequality comparison with extraneous parentheses [-Wparentheses-equality]\27[0m\
+ 3431 |       } else if (((m) == 0xdc)) {\27[0m\
+      | \27[0;1;32m                  ~~~~^~~~~~~\
+\27[0m\27[1mdep\\stb_image/stb_image.h:3431:23: \27[0m\27[0;1;36mnote: \27[0mremove extraneous parentheses around the comparison to silence this warning\27[0m\
+ 3431 |       } else if (((m) == 0xdc)) {\27[0m\
+      | \27[0;1;32m                 ~    ^      ~\
+\27[0m\27[1mdep\\stb_image/stb_image.h:3431:23: \27[0m\27[0;1;36mnote: \27[0muse '=' to turn this equality comparison into an assignment\27[0m\
+ 3431 |       } else if (((m) == 0xdc)) {\27[0m\
+      | \27[0;1;32m                      ^~\
+\27[0m      | \27[0;32m                      =\
+\27[0m2 warnings generated.\
+"
+}

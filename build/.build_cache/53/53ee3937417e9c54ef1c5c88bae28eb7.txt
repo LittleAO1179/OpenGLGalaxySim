@@ -1,0 +1,7 @@
+{
+    errdata = "\27[1msrc\\VertexArray.cpp:36:118: \27[0m\27[0;1;35mwarning: \27[0m\27[1mcast to 'const void *' from smaller integer type 'unsigned int' [-Wint-to-void-pointer-cast]\27[0m\
+   36 |   GLClearError(); glad_glVertexAttribPointer(i, element.count, element.type, element.normalized, layout.GetStride(), (const void*)offset); if(!(GLLogCall(\"glVertexAttribPointer(i, element.count, element.type, element.normalized, layout.GetStride(), (const void*)offset)\", \"src\\\\VertexArray.cpp\", 36))) __debugbreak();;;\27[0m\
+      | \27[0;1;32m                                                                                                                     ^~~~~~~~~~~~~~~~~~~\
+\27[0m1 warning generated.\
+"
+}

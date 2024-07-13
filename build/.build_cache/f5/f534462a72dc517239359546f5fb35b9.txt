@@ -1,0 +1,7 @@
+{
+    errdata = "\27[1msrc\\item\\Skybox.cpp:23:17: \27[0m\27[0;1;35mwarning: \27[0m\27[1millegal character encoding in string literal [-Winvalid-source-encoding]\27[0m\
+   23 |   std::cout << \"\27[7m<CC><F9>\27[0mͼ\27[7m<CA><FD><B2><BB><B9><BB><A3><AC><D0><E8>\27[0mҪ6\27[7m<D5>\27[0mš\27[7m<A3>\27[0m\" << std::endl;\27[0m\
+      | \27[0;1;32m                ^~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~ ~~~~\
+\27[0m1 warning generated.\
+"
+}
