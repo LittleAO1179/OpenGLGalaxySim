@@ -1,6 +1,7 @@
 #include "Item.h"
 
 #include <iostream>
+#include "imgui.h"
 #include "caculate/GLMSwitch.h"
 #include "caculate/AngleCaculate.h"
 
@@ -54,7 +55,6 @@ glm::vec3 Item::GetPos() const
 
 void Item::Update()
 {
-	std::cout << "请检查，该物体没有实体可以显示。" << std::endl;
 	ASSERT(false);
 }
 

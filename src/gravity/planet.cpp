@@ -1,5 +1,6 @@
 #include "planet.h"
 #include "cmath"
+#include "imgui.h"
 
 std::vector<Planet*> Planet::planets = std::vector<Planet*>();
 bool Planet::m_isPaused = false;
@@ -9,7 +10,7 @@ void Planet::Runing(float deltaTime, float realTime, GLFWwindow* window)
 {
 	bool isPKeyPressedNow = glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS;
 
-	// 检查P键是否被按下，并且之前没有被按下
+	// 锟斤拷锟絇锟斤拷锟角否被帮拷锟铰ｏ拷锟斤拷锟斤拷之前没锟叫憋拷锟斤拷锟斤拷
 	if (isPKeyPressedNow && !m_isPKeyPressed)
 		m_isPaused = !m_isPaused;
 
@@ -18,16 +19,16 @@ void Planet::Runing(float deltaTime, float realTime, GLFWwindow* window)
 		for (const auto& i : planets)
 		{
 			i->SetAngle(glm::vec3(0.0f, (i->getRotateFactor()) * realTime, 0.0f));
-			// 更新加速度
+			// 锟斤拷锟铰硷拷锟劫讹拷
 			i->UpdateAcceleration();
-			// 更新速度
+			// 锟斤拷锟斤拷锟劫讹拷
 			glm::vec3 acc = i->GetAcceleration();
 			glm::vec3 speed = i->GetSpeed();
 			speed.x += acc.x * deltaTime;
 			speed.y += acc.y * deltaTime;
 			speed.z += acc.z * deltaTime;
 			i->SetSpeed(speed);
-			// 更新位置
+			// 锟斤拷锟斤拷位锟斤拷
 			glm::vec3 los = i->GetPos();
 			los.x += speed.x * deltaTime;
 			los.y += speed.y * deltaTime;
@@ -90,7 +91,7 @@ void Planet::UpdateAcceleration()
 		distance = i->GetPos() - GetPos();
 		float tmp = (6.67 * i->GetMass());
 
-		// 标准化再试试
+		// 锟斤拷准锟斤拷锟斤拷锟斤拷锟斤拷
 
 		float dis = glm::length(distance);
 		if (dis < 0.000005f) continue;

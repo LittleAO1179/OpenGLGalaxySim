@@ -4,7 +4,7 @@
 #include "VertexBufferLayout.h"
 
 /// <summary>
-/// 顶点数组类，请在定义缓冲区之后定义该类，并使用AddBuffer成员函数来绑定VertexBuffer类和VertexBufferLayout类。
+/// 锟斤拷锟斤拷锟斤拷锟斤拷锟洁，锟斤拷锟节讹拷锟藉缓锟斤拷锟斤拷之锟斤拷锟斤拷锟斤拷啵拷锟绞癸拷锟紸ddBuffer锟斤拷员锟斤拷锟斤拷锟斤拷锟斤拷VertexBuffer锟斤拷锟絍ertexBufferLayout锟洁。
 /// </summary>
 class VertexArray
 {
